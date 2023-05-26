@@ -1,7 +1,18 @@
-# Install in NORMAL terminal
+# Install in a enviroment.
+
+##  Install on terminal in enviroment
+cntrl shift P to make a enviroment in vs code.
+
 ~~~
-pip install PyQt6 screeninfo
+pip install screeninfo
+pip install PyQt6
 ~~~
+
+## OR Install in NORMAL terminal not the enviroment terminal, if you want PyQt6 outside the enviroment.
+~~~
+pip install PyQt6
+~~~
+
 Once PyQt6 is installed, locate the installation folder. 
 It is typically located in the Python installation's Scripts or bin directory.
 use to get the directory
@@ -35,9 +46,6 @@ Restart your computer for the changes to take effect.
 ## Designer file is in directory
 C:\Users\Shane\AppData\Local\Programs\Python\Python311\Lib\site-packages\PySide6
 
-#  Install on terminal in enviroment
-cntrl shift P to make a enviroment in vs code.
-
 ## for images you need to edit the .ui file
 ~~~
 <string notr="true">border-image: url(:/Resources/GM_Logo_400x63.png);</string>
@@ -65,5 +73,3 @@ pyinstaller --add-data "TimerQT.ui;." Timer1.py                      # creates d
 pyinstaller --add-data "Icons:Icons" Timer1.py
 pyinstaller --add-data 'src/README.txt:.' myscript.py
 ~~~
-
-Icons/gravity-media-logo-1920.png

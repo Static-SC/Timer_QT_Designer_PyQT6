@@ -1,6 +1,4 @@
-# Install in a enviroment.
-
-##  Install on terminal in enviroment
+#  Install enviroment in VS Code editor
 cntrl shift P to make a enviroment in vs code.
 
 ~~~
@@ -8,7 +6,7 @@ pip install screeninfo
 pip install PyQt6
 ~~~
 
-## OR Install in NORMAL terminal not the enviroment terminal, if you want PyQt6 outside the enviroment.
+# OR Install in NORMAL terminal not the enviroment terminal, if you want PyQt6 outside the enviroment.
 ~~~
 pip install PyQt6
 ~~~

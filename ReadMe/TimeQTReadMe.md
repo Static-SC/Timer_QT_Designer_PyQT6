@@ -1,5 +1,7 @@
 # Install in NORMAL terminal
-pip install PyQt6 PyQt6-tools pyqt6-plugins
+~~~
+pip install PyQt6 screeninfo
+~~~
 Once PyQt6 is installed, locate the installation folder. 
 It is typically located in the Python installation's Scripts or bin directory.
 use to get the directory
@@ -35,10 +37,6 @@ C:\Users\Shane\AppData\Local\Programs\Python\Python311\Lib\site-packages\PySide6
 
 #  Install on terminal in enviroment
 cntrl shift P to make a enviroment in vs code.
-~~~
-pip install screeninfo
-pip install PyQt6 PyQt6-tools QT-PyQt-PySide-Custom-Widgets
-~~~
 
 ## for images you need to edit the .ui file
 ~~~

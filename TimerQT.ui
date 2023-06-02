@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1126</width>
-    <height>675</height>
+    <width>1331</width>
+    <height>731</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -148,6 +148,9 @@
     </item>
     <item>
      <widget class="QFrame" name="frame_4">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTableWidget" name="user_input">
@@ -155,6 +158,9 @@
           <font>
            <pointsize>16</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <row>
           <property name="text">

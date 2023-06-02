@@ -93,12 +93,16 @@ class MainWindow(QtWidgets.QMainWindow):
     def open_second_window(self):
         self.second_window = SecondWindow()
 
-        # Show the second window to the right of the main window
-        screen_resolution = QtWidgets.QApplication.primaryScreen().availableGeometry()
-        width = screen_resolution.width()
-        x = self.geometry().x() + self.geometry().width() + 20  # arbitrary spacing
-        y = self.geometry().y()
-        self.second_window.move(x, y)  # Move the window to the desired position
+        screen_count = QtWidgets.QApplication.screens()
+        if len(screen_count) >= 2:
+            # If there is a second screen, move the second window to that screen and maximize it
+            screen = screen_count[1]
+            second_window_rect = screen.availableGeometry()
+            self.second_window.setGeometry(second_window_rect)
+        else:
+            # If there is no second screen, open the second window in windowed mode
+            self.second_window.show()
+
         self.second_window.show()
 
     def closeEvent(self, event):

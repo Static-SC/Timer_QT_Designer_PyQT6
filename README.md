@@ -18,3 +18,12 @@ pip install PyQt6 screeninfo
 ~~~
 python timer1.py
 ~~~
+
+# Clone to your computer
+1. git clone http_site
+
+# Sign in to Github
+~~~
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+~~~

@@ -9,6 +9,7 @@
 ## Install
 1. Use "git clone" to clone the project.
 2. Create virtual enviroment in VS code editor. CNTR SHIFT P
+3. Start a new Terminal so you in the Enviroment.
 3. Install Packages.
 ~~~
 pip install PyQt6 screeninfo

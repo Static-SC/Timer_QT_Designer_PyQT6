@@ -1,10 +1,8 @@
 <RCC>
   <qresource prefix="/">
+    <file>Icons/GM_LOGO_Crop.png</file>
     <file>Icons/Delete.png</file>
     <file>Icons/gear.jpg</file>
-    <file>Icons/GM_Logo_400x63.png</file>
-    <file>Icons/GravityMedia.jpg</file>
-    <file>Icons/gravity-media-logo-1920.png</file>
     <file>Icons/help.jpg</file>
     <file>Icons/home.jpg</file>
     <file>Icons/play.png</file>

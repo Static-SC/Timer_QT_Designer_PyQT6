@@ -1,9 +1,9 @@
 import sys
 import os
 from PyQt6 import QtCore, QtWidgets, uic
-from PyQt6.QtWidgets import QMessageBox, QTableWidgetItem, QStyledItemDelegate, QInputDialog, QGraphicsScene, QGraphicsPixmapItem
+from PyQt6.QtWidgets import QMessageBox, QTableWidgetItem, QStyledItemDelegate, QInputDialog, QFileDialog, QMenuBar, QMenu
 from PyQt6.QtCore import QTimer, QTime, Qt
-from PyQt6.QtGui import QIcon, QPixmap
+from PyQt6.QtGui import QIcon, QPixmap, QAction
 
 class TimeDelegate(QStyledItemDelegate):
     def createEditor(self, parent, option, index):
@@ -71,15 +71,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.all_reset_btn.setIcon(QIcon("Icons/Reset.png"))
         self.segment_reset_btn.setIcon(QIcon("Icons/Reset.png"))
         self.table_reset_btn.setIcon(QIcon("Icons/Reset3.png"))
-
-        # Add an image to the graphicsView
-        scene = QGraphicsScene(self)
-        pixmap = QPixmap("Icons\GravityMedia.jpg")  # Replace "path_to_your_image.jpg" with the actual path to your image file
-        pixmap = pixmap.scaledToWidth(self.graphicsView.width(), Qt.TransformationMode.SmoothTransformation)
-        item = QGraphicsPixmapItem(pixmap)
-        scene.addItem(item)
-        self.graphicsView.setScene(scene)
-        self.graphicsView.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.groupBox.setStyleSheet("border-image: url(./Icons/FTX512logo.png);")
 
         # Adjust column width of the Table column 1, starts at 0
         self.user_input.setColumnWidth(0, 250)  # Set the width of column 1 to 30
@@ -89,6 +81,22 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Connect itemChanged signal to table_cell_changed slot
         self.user_input.itemChanged.connect(self.table_cell_changed)
+
+        # Create the menu bar and add a menu item
+        self.menu_bar = QMenuBar(self)
+        self.setMenuBar(self.menu_bar)
+        self.load_image_menu = QMenu("File", self)
+        self.load_image_action = QAction(QIcon("path/to/icon.png"), "Load Image", self)
+        self.load_image_action.triggered.connect(self.open_image_dialog)
+        self.load_image_menu.addAction(self.load_image_action)
+        self.menu_bar.addMenu(self.load_image_menu)
+
+    def open_image_dialog(self):
+        options = QFileDialog.Option.ReadOnly
+        options |= QFileDialog.Option.ReadOnly
+        fileName, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Image Files (*.png *.jpg *.jpeg *.gif)", options=options)
+        if fileName:
+            self.groupBox.setStyleSheet(f"border-image: url({fileName});")
 
     def open_second_window(self):
         self.second_window = SecondWindow()

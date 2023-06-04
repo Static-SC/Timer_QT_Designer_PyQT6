@@ -130,7 +130,13 @@
          <property name="font">
           <font>
            <pointsize>22</pointsize>
+           <bold>false</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Stop/Start</string>

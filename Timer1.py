@@ -5,6 +5,8 @@ from PyQt6.QtWidgets import QMessageBox, QTableWidgetItem, QStyledItemDelegate, 
 from PyQt6.QtCore import QTimer, QTime, Qt
 from PyQt6.QtGui import QIcon, QPixmap, QAction
 
+icons_dir = os.path.join(os.path.dirname(__file__), "./Icons")
+
 class TimeDelegate(QStyledItemDelegate):
     def createEditor(self, parent, option, index):
         editor = super().createEditor(parent, option, index)
@@ -66,16 +68,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.user_input.setColumnCount(3)  # Set the column count
         self.user_input.setHorizontalHeaderLabels(['Segment', 'Time', 'Total Time'])  # Set the header labels
 
-        # Initialise Icons
-        self.stop_start_btn.setIcon(QIcon("Icons/Play.png"))
-        self.all_reset_btn.setIcon(QIcon("Icons/Reset.png"))
-        self.segment_reset_btn.setIcon(QIcon("Icons/Reset.png"))
-        self.table_reset_btn.setIcon(QIcon("Icons/Reset3.png"))
-        self.groupBox.setStyleSheet("border-image: url(./Icons/FTX512logo.png);")
+        # Initialize Icons
+        self.stop_start_btn.setIcon(QIcon(os.path.join(icons_dir, "Play.png")))
+        self.all_reset_btn.setIcon(QIcon(os.path.join(icons_dir, "Reset.png")))
+        self.segment_reset_btn.setIcon(QIcon(os.path.join(icons_dir, "Reset.png")))
+        self.table_reset_btn.setIcon(QIcon(os.path.join(icons_dir, "Reset3.png")))
+        self.groupBox.setStyleSheet('border-image: url("' + os.path.join(icons_dir, "FTX1324x512.png").replace("\\", "/") + '");')
 
         # Adjust column width of the Table column 1, starts at 0
         self.user_input.setColumnWidth(0, 250)  # Set the width of column 1 to 30
-        #self.user_input.resizeColumnToContents(0)  # Adjust column width based on content
+        # self.user_input.resizeColumnToContents(0)  # Adjust column width based on content
 
         self.second_window = None
 
@@ -86,7 +88,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.menu_bar = QMenuBar(self)
         self.setMenuBar(self.menu_bar)
         self.load_image_menu = QMenu("File", self)
-        self.load_image_action = QAction(QIcon("path/to/icon.png"), "Load Image", self)
+        self.load_image_action = QAction(QIcon(os.path.join(icons_dir, "icon.png")), "Load Image", self)
         self.load_image_action.triggered.connect(self.open_image_dialog)
         self.load_image_menu.addAction(self.load_image_action)
         self.menu_bar.addMenu(self.load_image_menu)
@@ -122,12 +124,12 @@ class MainWindow(QtWidgets.QMainWindow):
             self.timer1.stop()
             self.timer2.stop()
             self.stop_start_btn.setText('Start')
-            self.stop_start_btn.setIcon(QIcon("Icons/Play.png"))
+            self.stop_start_btn.setIcon(QIcon(os.path.join(icons_dir, "Play.png")))
         else:
             self.timer1.start(1000)
             self.timer2.start(1000)
             self.stop_start_btn.setText('Stop')
-            self.stop_start_btn.setIcon(QIcon("Icons/PlayStop.png"))
+            self.stop_start_btn.setIcon(QIcon(os.path.join(icons_dir, "PlayStop.png")))
 
     def get_user_input(self):
         text, ok = QInputDialog.getText(self, 'User Input', 'Enter your text:')
@@ -180,9 +182,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Update the Stop/Start button text
         self.stop_start_btn.setText('Start')
-        self.stop_start_btn.setIcon(QIcon("Icons/Play.png"))
-        self.all_reset_btn.setIcon(QIcon("Icons/Reset.png"))
-        self.segment_reset_btn.setIcon(QIcon("Icons/Reset.png"))
+        self.stop_start_btn.setIcon(QIcon(os.path.join(icons_dir, "Play.png")))
+        self.all_reset_btn.setIcon(QIcon(os.path.join(icons_dir, "Reset.png")))
+        self.segment_reset_btn.setIcon(QIcon(os.path.join(icons_dir, "Reset.png")))
 
     def reset_table(self):
         self.user_input.setRowCount(0)
